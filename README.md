@@ -8,7 +8,9 @@
 
 [Whack-a-Mole][mole]<br />Hit as many moles as you can!
 
-[JavaScript Drum][drum]<br />make your own songs with your own keyboard
+[JavaScript Drum][drum]<br />Make your own songs with your own keyboard
+
+[Canvas][canvas]<br />Draw your rainbow painting on canvas in browser
 
 ---
 
@@ -20,6 +22,7 @@
 [countdown]: ./timer
 [mole]: ./mole
 [drum]: ./drum
+[canvas]:./canvas
 
 [twitter]: https://twitter.com/shenevol
 [LinkedIn]: https://www.linkedin.com/in/laurenfu/
