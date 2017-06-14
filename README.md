@@ -18,6 +18,7 @@
 [watermark]: https://shenevol.github.io/waterMark/
 [videoplayer]: ./videoplayer
 [countdown]: ./timer
+[mole]: ./mole
 [drum]: ./drum
 
 [twitter]: https://twitter.com/shenevol
