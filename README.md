@@ -6,6 +6,8 @@
 
 [Countdown Timer][countdown]<br />Easy-to-use web timer reminds you to go snacks, lunch or do anything you want!
 
+[Whack-a-Mole][mole]<br />Hit as many moles as you can!
+
 [JavaScript Drum][drum]<br />make your own songs with your own keyboard
 
 ---
