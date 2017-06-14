@@ -1,0 +1,162 @@
+<html>
+
+<head>
+    <title>TEST in Day29</title>
+    <link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            box-sizing: border-box;
+            background: linear-gradient(45deg, #42a5f5 0%, #478ed1 20%, #0d47a1 100%);
+            margin: 0;
+            padding: 0;
+            font-family: 'Inconsolata', monospace;
+        }
+
+        button {
+            border: none;
+        }
+
+        .module-wrapper {
+            display: flex;
+            width: 100%;
+        }
+
+        .item {
+            flex-grow: 1;
+            border-right: 1px solid rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+            display: flex;
+            background: none;
+            transition: all 0.2s;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            color: white;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        .item:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .module-wrapper form {
+            border: 0;
+            flex: 1;
+            display: flex;
+            margin: 0;
+        }
+
+        .module-wrapper input {
+            flex-grow: 1;
+            padding: 2rem;
+        }
+
+        .display {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .display>* {
+            margin: 0;
+            padding: 0;
+        }
+
+        .time-left {
+            font-size: 20rem;
+            font-weight: 100;
+            color: white;
+        }
+
+        .end-time {
+            font-size: 4rem;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="module-wrapper">
+        <button data-time="20" class="item">20 secs</button>
+        <button data-time="300" class="item">work 5</button>
+        <button data-time="900" class="item">quick 15</button>
+        <button data-time="1200" class="item">snack 20</button>
+        <button data-time="3600" class="item">lunck break</button>
+
+        <form name="customform">
+            <input type="" name="minutes" value="" placeholder="Enter Minutes">
+        </form>
+    </div>
+
+    <div class="display">
+        <h1 class="time-left"></h1>
+        <p class="end-time"></p>
+    </div>
+</body>
+<script>
+    let countdown;
+    const timerText = document.querySelector(".time-left");
+    const leftTimerText = document.querySelector(".end-time");
+    const timerButton = document.querySelectorAll('[data-time]');
+
+    function Timer(seconds) {
+        clearInterval(countdown);
+
+        const now = Date.now();
+        const then = now + seconds * 1000;
+
+        displayTime(seconds);
+        displayEndTime(then);
+
+        countdown = setInterval(() => {
+            const secondLeft = Math.round((then - Date.now()) / 1000);
+            if (secondLeft < 0) {
+                clearInterval(countdown);
+                return;
+            }
+            displayTime(secondLeft);
+        }, 1000);
+    }
+
+    function displayTime(seconds) {
+        const min = Math.floor(seconds / 60);
+        const remainSeconds = seconds % 60;
+        const displayTime = `${min}:${remainSeconds < 10 ? '0' :''}${remainSeconds}`;
+        timerText.textContent = displayTime;
+        document.title = displayTime;
+    }
+
+    function displayEndTime(seconds) {
+        const endTime = new Date(seconds);
+        const endHour = endTime.getHours();
+        const endMin = endTime.getMinutes();
+        leftTimerText.textContent =
+            `Will be back at ${endHour > 12 ? endHour - 12 : endHour}:${endMin < 10 ? '0':''}${endMin}`;
+    }
+
+    function initlizeTimer(seconds) {
+        Timer(parseInt(this.dataset.time));
+    }
+
+    timerButton.forEach((button) => {
+        button.addEventListener('click', initlizeTimer);
+    });
+
+    function customMinutes(e) {
+        e.preventDefault();
+        Timer(document.customform.minutes.value * 60);
+        this.reset();
+    }
+    document.customform.addEventListener('submit', customMinutes);
+
+</script>
+
+</html>

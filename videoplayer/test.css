@@ -1,0 +1,144 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to top, #fad0c4 0%, #fad0c4 1%, #ffd1ff 100%);
+  background-attachment: fixed;
+}
+
+.videoPlayer {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 700px;
+  height: 393.75px;
+  margin: auto;
+  margin-top: 100px;
+  white-space: nowrap;
+  border: 5px solid rgba(0,0,0,0.1);
+}
+
+.myVideo {
+  width: 100%;
+  background-color: black;
+  flex-grow: 1;
+}
+
+.playBar {
+  position: absolute;
+  bottom: -50px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50px;
+  transition: bottom 0.2s;
+  background-color: black;
+  bottom: 0;
+}
+
+.barStatus {
+  width: 100%;
+  height: 15px;
+  display: flex;
+  cursor:ew-resize;
+}
+
+.barStatusNow {
+  flex-basis: 50%;
+  height: 100%;
+  background-color: gold;
+}
+
+.controlBar {
+  display: flex;
+  height: 25px;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.videoPlayer:hover .playBar {
+  position: absolute;
+  bottom: 0;
+}
+
+.controlBar {
+  width: 100%;
+}
+
+button:focus {
+  outline: none;
+}
+
+.controlButton {
+  width: 45px;
+}
+
+.playButton {
+  color: #ffffff;
+  border: none;
+  background-color: transparent;
+}
+
+input[type=range] {
+  width: 200px;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.slide-bar {
+  flex-grow: 3;
+}
+
+.slide-bar::-webkit-slider-runnable-track {
+  height: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #cccccc;
+}
+
+.slide-bar::-moz-range-track {
+  height: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #cccccc;
+}
+
+.slide-bar::-webkit-slider-thumb {
+  position: relative;
+  top: -2px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: gold;
+  -webkit-appearance: none;
+}
+
+.slide-bar::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: gold;
+  -webkit-appearance: none;
+}
+
+.forward-button {
+  color: #cccccc;
+  border: none;
+  background-color: transparent;
+}
+
+.forward-button:focus {
+  outline: none;
+}
